@@ -15,6 +15,9 @@ options.add_argument("--headless=new")
 # Definindo o Navegador à ser utilizado como Chrome 
 navegador = webdriver.Chrome(options=options)
 
+# Medindo o Tempo de Execução
+start = time.time()
+
 # Obtendo a URL e Iniciando
 navegador.get("https://books.toscrape.com")
 
@@ -78,3 +81,9 @@ df = pd.DataFrame(data)
 
 # Gerando uma Planilha em Excel com o DataFrame
 df.to_excel("books_selenium.xlsx", index=False)
+
+# Encerrando a Execução e Capturando o Tempo com um Arquivo '.txt'
+end = time.time()
+tempo = end - start
+with open("tempo.txt", "w") as txtFile:
+    txtFile.write(str(tempo) + "s")
