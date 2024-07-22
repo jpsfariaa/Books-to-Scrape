@@ -46,7 +46,7 @@ def extrairDados(url):
         classe = ' '.join(avaliacao["class"])
 
         # Buscando dentro do Atributo 'class' o Padrão da Expressão Regular dentro do Texto da Avaliação do Livro
-        match = re.search(regex, classe)
+        match = re.search(regexAv, classe)
         if match:
             # Inserindo os Valores Coletados na Lista 'data' em formato de Dict
             data.append({
@@ -54,7 +54,7 @@ def extrairDados(url):
                 "Book Name": nomeLivro,
                 "Price": valorLivro,
                 "Star Rating": match.group(1),
-                "Availability": re.sub(regex2, "", disponibilidade.text.strip())
+                "Availability": re.sub(regexEstoque, "", disponibilidade.text.strip())
             })
 
 # Chamando a Função 'extrairDados' para Realizar a Coleta na URL Inicial
