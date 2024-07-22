@@ -72,10 +72,10 @@ for i in range(2, 51):
 df = pd.DataFrame(data)
 
 # Gerando uma Planilha em Excel com o DataFrame
-df.to_excel("books_bs4.xlsx", index=False)
+df.to_excel("BeautifulSoup/books_bs4.xlsx", index=False)
 
 # Encerrando a Execução e Capturando o Tempo com um Arquivo '.txt'
 end = time.time()
 tempo = end - start
-with open("tempo.txt", "w") as txtFile:
-    txtFile.write(tempo)
+with open("BeautifulSoup/tempo.txt", "w") as txtFile:
+    txtFile.write(str(tempo) + "s")
